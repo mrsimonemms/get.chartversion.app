@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import '../app.scss';
+
 // Settings useful for statically generated sites
 export const prerender = true;
 export const ssr = true;
