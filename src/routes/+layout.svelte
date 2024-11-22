@@ -1,3 +1,14 @@
+<script lang="ts">
+	import { MetaTags } from 'svelte-meta-tags';
+</script>
+
+<MetaTags
+	title="Finder"
+	titleTemplate="%s | ChartVersion.app"
+	description="Find the versions of published Helm charts"
+	canonical="https://chartversion.app"
+/>
+
 <nav class="navbar" aria-label="main navigation">
 	<div class="navbar-end">
 		<div class="navbar-item">
