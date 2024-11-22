@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/mrsimonemms/new",
+  "commit": "0fcf58f86a5527bbb54409bc0e50602bf683abb0",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "chartversion.app",
+      "description": "Find the versions of published Helm charts",
+      "author": "Simon Emms <simon@simonemms.com>",
+      "type": "svelte",
+      "_template": "https://github.com/mrsimonemms/new"
+    }
+  },
+  "directory": "js",
+  "skip": [
+    ".git"
+  ]
+}
