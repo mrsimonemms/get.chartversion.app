@@ -1,0 +1,25 @@
+{
+  "repo": [
+    {
+      "chart": "cert-manager",
+      "home": "https://cert-manager.io",
+      "description": "A Helm chart for cert-manager",
+      "icon": "https://raw.githubusercontent.com/cert-manager/community/4d35a69437d21b76322157e6284be4cd64e6d2b7/logo/logo-small.png",
+      "source": "https://github.com/cert-manager/cert-manager",
+      "versions": [
+        {
+          "version": "v1.16.2",
+          "created": "2024-11-20T17:51:52.383811878Z"
+        },
+        {
+          "version": "v1.16.1",
+          "created": "2024-10-09T13:04:07.627486832Z"
+        },
+        {
+          "version": "v1.16.0",
+          "created": "2024-10-03T13:45:23.558916223Z"
+        }
+      ]
+    }
+  ]
+}
