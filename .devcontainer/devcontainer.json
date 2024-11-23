@@ -1,7 +1,12 @@
 {
   "image": "ghcr.io/mrsimonemms/devcontainers/full",
   "name": "devcontainer",
-  "features": {},
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/gh-release:1": {
+      "repo": "fission/fission",
+      "binaryNames": "fission"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -12,7 +17,14 @@
       "settings": {}
     }
   },
+  "postCreateCommand": {
+    "minikube-start": "minikube profile list | grep dev | grep Running || minikube start -p dev"
+  },
+  "postAttachCommand": {
+    "ensure-fission": "kubectl apply --server-side -k github.com/fission/fission/crds/v1?ref=v1.20.5 && helm upgrade --atomic --cleanup-on-fail --create-namespace  --install --namespace fission --repo https://fission.github.io/fission-charts --reset-values --set serviceType=NodePort,routerServiceType=NodePort --version v1.20.5 --wait fission fission-all"
+  },
   "containerEnv": {
+    "FISSION_NAMESPACE": "fission",
     "VITE_HOST": "0.0.0.0"
   }
 }
