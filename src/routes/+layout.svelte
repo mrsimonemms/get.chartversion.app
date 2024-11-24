@@ -52,7 +52,7 @@
 	</div>
 </div>
 
-<div class="footer has-text-centered">
+<div class="footer mt-6 has-text-centered">
 	<p>
 		&copy; 2024 Made with
 		<span class="icon has-text-danger"><i class="mdi mdi-heart"></i></span>
