@@ -113,6 +113,19 @@ async function getHttpsChart(url: string): Promise<IRecord[]> {
 	return data;
 }
 
+async function getOCIChart(url: string): Promise<IRecord[]> {
+	const { host, pathname: chart } = new URL(url);
+
+	const a = await fetch(`http://${host}/v2/${chart}/tags/list`);
+	console.log({
+		host,
+		chart: chart.replace(/^\//, ''),
+		a,
+	});
+
+	return [];
+}
+
 export default {
 	async fetch(request): Promise<Response> {
 		const { repo } = getQueryStrings(request);
@@ -138,6 +151,7 @@ export default {
 					break;
 
 				case 'oci:':
+					data = await getOCIChart(repoUrl.toString());
 					break;
 
 				default:
