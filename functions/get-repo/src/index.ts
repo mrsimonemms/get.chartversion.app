@@ -116,7 +116,7 @@ async function getHttpsChart(url: string): Promise<IRecord[]> {
 async function getOCIChart(url: string): Promise<IRecord[]> {
 	const { host, pathname: chart } = new URL(url);
 
-	const a = await fetch(`http://${host}/v2/${chart}/tags/list`);
+	const a = await fetch(`https://${host}/v2/${chart}/tags/list`);
 	console.log({
 		host,
 		chart: chart.replace(/^\//, ''),
