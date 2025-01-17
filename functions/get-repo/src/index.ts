@@ -15,6 +15,8 @@
  */
 
 import yaml from 'js-yaml';
+import { URL } from 'node:url';
+import { DockerClient } from './lib/docker';
 
 export interface IVersion {
 	version: string;
@@ -48,7 +50,7 @@ function getQueryStrings(request: Request): Record<string, string> {
 	const url = new URL(request.url);
 	const queryString = url.search.slice(1).split('&');
 
-	queryString.forEach((item) => {
+	queryString.forEach((item: string) => {
 		const [key, value] = item.split('=');
 		if (key) {
 			params[key] = value;
@@ -114,14 +116,25 @@ async function getHttpsChart(url: string): Promise<IRecord[]> {
 }
 
 async function getOCIChart(url: string): Promise<IRecord[]> {
-	const { host, pathname: chart } = new URL(url);
-
-	const a = await fetch(`https://${host}/v2/${chart}/tags/list`);
-	console.log({
-		host,
-		chart: chart.replace(/^\//, ''),
-		a,
+	const d = new DockerClient({
+		url,
 	});
+
+	console.log(await d.listTags());
+
+	// // // import
+	// // const drc = await import('docker-registry-client');
+
+	// // console.log(drc);
+
+	// // console.log(drc);
+
+	// const a = await fetch(`https://${host}/v2/${chart}/tags/list`);
+	// console.log({
+	// 	host,
+	// 	chart: chart.replace(/^\//, ''),
+	// 	a,
+	// });
 
 	return [];
 }
